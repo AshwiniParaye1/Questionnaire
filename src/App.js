@@ -13,6 +13,7 @@ function App() {
     <Router>
       <Routes>
         <Route path='/' element={<Questions />} />
+        <Route path='/:QId' element={<Questions />} />
       </Routes>
     </Router>
     
