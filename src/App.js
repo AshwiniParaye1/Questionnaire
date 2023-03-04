@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-    <h1>App</h1>
+    <h1>Question Bank</h1>
     
 
     <Router>

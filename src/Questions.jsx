@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
+
 
 function Questions() {
 
+    const [ data, setData ] = useState([])
     
 const apiGet = () => {
   fetch('https://0h8nti4f08.execute-api.ap-northeast-1.amazonaws.com/getQuestionDetails/getquestiondetails?QuestionID=AreaUnderTheCurve_2')
@@ -11,20 +13,31 @@ const apiGet = () => {
 
     
     for (let i=0; i < apiData.length; i++){
-        // console.log("========", apiData[i].Question)
-       
-    const QuestionText = apiData[i].Question;
-
-    console.log("QuestionText=====",QuestionText)
-        
+        console.log("========", apiData[i].Question)
+    
+    setData(apiData);
+    
     }
 
-  })
+  }
+  )
     
 }
   return (
     <>
-       <button onClick={apiGet}>Get Question</button>
+       <button onClick={apiGet}>Get Question</button><br/>
+        {/* {JSON.stringify(data)} */}
+        
+        <div>
+           <ul>
+             {
+                data.map((item => 
+                    <li key={item.QuestionID}>{item.Question}</li>
+                  ))
+            }
+           </ul>
+        </div>
+
     </>
   )
 }
