@@ -4,3 +4,44 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.button {
+  background-color: #4CAF50;
+  /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 20px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 12px
+}
+
+.btn1 {
+  background-color: #4CAF50;
+  color: white;
+  border: 2px solid white;
+}
+
+.btn1:hover {
+  background-color: #8ac38c;
+  color: white;
+}
+
+.title{
+  /* text-align: center; */
+  margin: 20px;
+}
+
+.questionDIv{
+  /* width: auto; */
+ padding-right: 20%;
+}
+
+.questionDivli{
+  margin: 0.1px;
+  
+}

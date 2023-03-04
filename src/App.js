@@ -1,22 +1,24 @@
 import React from 'react';
 import Questions from './Questions';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { MathJax, MathJaxContext } from "better-react-mathjax";
+
 
 function App() {
   
 
   return (
     <>
-    <h1>Question Bank</h1>
+    <MathJaxContext>
+      <h1 className='title'>Questionnaire</h1>
     
-
     <Router>
       <Routes>
-        <Route path='/' element={<Questions />} />
-        <Route path='/:QId' element={<Questions />} />
+          <Route path='/' element={<Questions />} />
+        {/* <Route path='/:QId' element={<Questions />} /> */}
       </Routes>
     </Router>
-    
+    </MathJaxContext>
     </>
   )
 }
