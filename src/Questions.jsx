@@ -51,7 +51,7 @@ function Questions() {
             <ul className='questionDivul'>
               <MathJax>
                 {
-                  <li className='questionDivli'>{data[currentQuestionIndex].Question}</li>
+                  <li className='questionDivli'>{`$$${data[currentQuestionIndex].Question}$$`}</li>
                 }
                 </MathJax>
             </ul>
