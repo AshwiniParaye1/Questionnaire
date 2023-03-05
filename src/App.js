@@ -1,7 +1,7 @@
 import React from 'react';
 import Questions from './Questions';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { MathJax, MathJaxContext } from "better-react-mathjax";
+import { MathJaxContext } from "better-react-mathjax";
 
 
 function App() {

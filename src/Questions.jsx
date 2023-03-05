@@ -1,64 +1,70 @@
 import React, { useState } from 'react';
-// import { useParams } from 'react-router-dom';
 import { MathJax } from "better-react-mathjax";
-
 
 function Questions() {
 
-    const [ data, setData ] = useState([])
-    
-    
-const apiGet = () => {
+  // State to store the API data and current question index
+  const [data, setData] = useState([]);
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
 
-    let QId =  [ 'AreaUnderTheCurve_901', 'BinomialTheorem_901', 'DifferentialCalculus2_901' ]
+  // Function to fetch API data and update state
+  const apiGet = () => {
+    let QId = ['AreaUnderTheCurve_901', 'BinomialTheorem_901', 'DifferentialCalculus2_901'];
 
-    for(let i=0; i< QId.length; i++){
-        console.log("QId",QId[i])
-    
-        const RQId = QId[i];
- 
-  fetch(`https://0h8nti4f08.execute-api.ap-northeast-1.amazonaws.com/getQuestionDetails/getquestiondetails?QuestionID=${RQId}`)
-  .then((response) => response.json())
-  .then((apiData) => {
-    console.log('data===========', apiData)
-   
-
-        for (let i=0; i < apiData.length; i++){
-        console.log("========", apiData[i].Question)
-    
-    setData(apiData);
-
+    for (let i = 0; i < QId.length; i++) {
+      const RQId = QId[i];
+      fetch(`https://0h8nti4f08.execute-api.ap-northeast-1.amazonaws.com/getQuestionDetails/getquestiondetails?QuestionID=${RQId}`)
+        .then((response) => response.json())
+        .then((apiData) => {
+          // Update state with fetched data
+          setData((prevData) => [...prevData, ...apiData]);
+        })
+        .catch((error) => console.error(error)); // Log any errors to the console
     }
+  };
 
-}
-  )
-} //for loop close
-}
+  // Function to handle next question button click
+  const handleNextQuestion = () => {
+    setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+  };
+
+  // Function to handle previous question button click
+  const handlePrevQuestion = () => {
+    setCurrentQuestionIndex((prevIndex) => prevIndex - 1);
+  };
+
   return (
     <>
-      
       <div>
-         <button onClick={apiGet} className='button btn1'>Get Questions</button><br/>
-        {/* {JSON.stringify(data)} */}
-        
+        <button onClick={apiGet} className='button'>
+          Get Questions
+        </button>
+        <br />
+        {/*
+          Render the current question using the currentQuestionIndex state.
+          If data is empty or index is out of range, display a loading message.
+        */}
         <div className='questionDIv'>
-          
+          {data.length === 0 || currentQuestionIndex < 0 || currentQuestionIndex >= data.length ? (
+            <div className='loadingMessage'>Loading...</div>
+          ) : (
             <ul className='questionDivul'>
-                <MathJax>
-             {
-                data.map((item => 
-                
-                <li key={item.QuestionID} className='questionDivli'>
-                    {item.Question}</li>
-            ))
-            }</MathJax>
-           </ul>
-         
+              <MathJax>{<li className='questionDivli'>{data[currentQuestionIndex].Question}</li>}</MathJax>
+            </ul>
+          )}
+          {/* Render next and previous buttons, disabled when at the start/end of questions */}
+          <div className='questionNav'>
+            <button onClick={handlePrevQuestion} disabled={currentQuestionIndex === 0}>
+              Previous
+            </button>
+            <button onClick={handleNextQuestion} disabled={currentQuestionIndex === data.length - 1}>
+              Next
+            </button>
+          </div>
         </div>
       </div>
-
     </>
-  )
+  );
 }
 
-export default Questions
+export default Questions;

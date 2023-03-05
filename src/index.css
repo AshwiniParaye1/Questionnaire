@@ -1,47 +1,108 @@
+/* Styles for body */
 body {
-  margin: 0;
-  font-family: 'Playfair Display', serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: #F2EAED;
 }
+
+/* Styles for title */
+.title {
+  /* text-align: center; */
+  font-size: 32px;
+  font-weight: bold;
+  margin-top: 32px;
+  margin-bottom: 16px;
+}
+
+
+/* Styles for button */
 .button {
-  background-color: #4CAF50;
-  /* Green */
+  background-color: #16235A;
   border: none;
   color: white;
-  padding: 16px 32px;
+  padding: 12px 24px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 4px 20px;
-  transition-duration: 0.4s;
+  margin: 4px 2px;
   cursor: pointer;
-  border-radius: 12px
+  border-radius: 4px;
+  margin-bottom: 50px;
 }
 
-.btn1 {
-  background-color: #4CAF50;
+/* Styles for question container */
+.questionDIv {
+  margin-top: 16px;
+  padding: 16px;
+  border: 1px solid #16235A;
+  border-radius: 4px;
+  height: auto;
+  overflow: auto;
+  background-color: #A4A4BF;
+}
+
+/* Styles for question list */
+.questionDivul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Styles for question list item */
+.questionDivli {
+  margin-bottom: 16px;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+/* Styles for question navigation container */
+.questionNav {
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Styles for question navigation buttons */
+.questionNav button {
+  background-color: #16235A;
+  border: none;
   color: white;
-  border: 2px solid white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px;
+  cursor: pointer;
+  border-radius: 4px;
 }
 
-.btn1:hover {
-  background-color: #8ac38c;
-  color: white;
+/* Styles for tablet view */
+@media (min-width: 768px) {
+  .questionDIv {
+    max-width: 768px;
+    margin: 0 auto;
+  }
 }
 
-.title{
-  /* text-align: center; */
-  margin: 20px;
+/* Styles for mobile view */
+@media (max-width: 480px) {
+  .questionDIv {
+    max-width: 480px;
+    margin: 0 auto;
+  }
 }
 
-.questionDIv{
-  /* width: auto; */
- padding-right: 20%;
-}
-
-.questionDivli{
-  margin: 0.1px;
-  
+/* Styles for loading message */
+.loadingMessage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #878b30;
+  margin-top: 16px;
+  padding: 16px;
+  height: auto;
+  overflow: auto;
 }
