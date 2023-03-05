@@ -44,28 +44,27 @@ function Questions() {
           Render the current question using the currentQuestionIndex state.
           If data is empty or index is out of range, display a loading message.
         */}
-        <div className='questionDIv'>
-          {data.length === 0 || currentQuestionIndex < 0 || currentQuestionIndex >= data.length ? (
-            <div className='loadingMessage'>Loading...</div>
-          ) : (
-            <ul className='questionDivul'>
-              <MathJax>
-                {
-                  <li className='questionDivli'>{`$$${data[currentQuestionIndex].Question}$$`}</li>
-                }
-                </MathJax>
-            </ul>
-          )}
-          {/* Render next and previous buttons, disabled when at the start/end of questions */}
-          <div className='questionNav'>
-            <button onClick={handlePrevQuestion} disabled={currentQuestionIndex === 0}>
-              Previous
-            </button>
-            <button onClick={handleNextQuestion} disabled={currentQuestionIndex === data.length - 1}>
-              Next
-            </button>
-          </div>
-        </div>
+<div className='questionDIv'>
+  {data.length === 0 || currentQuestionIndex < 0 || currentQuestionIndex >= data.length ? (
+    <div className='loadingMessage'>Loading...</div>
+  ) : (
+    <MathJax>
+      <ul className='questionDivul'>
+        <li className='questionDivli'>{data[currentQuestionIndex].Question}</li>
+      </ul>
+    </MathJax>
+  )}
+  {/* Render previous and next buttons */}
+  <div className='questionNav'>
+    <button onClick={handlePrevQuestion} disabled={currentQuestionIndex === 0 || data.length === 0}>
+      Previous
+    </button>
+    <button onClick={handleNextQuestion} disabled={currentQuestionIndex === data.length - 1 || data.length === 0}>
+      Next
+    </button>
+  </div>
+</div>
+
       </div>
     </>
   );
