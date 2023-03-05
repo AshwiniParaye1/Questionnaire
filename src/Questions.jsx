@@ -49,7 +49,11 @@ function Questions() {
             <div className='loadingMessage'>Loading...</div>
           ) : (
             <ul className='questionDivul'>
-              <MathJax>{<li className='questionDivli'>{data[currentQuestionIndex].Question}</li>}</MathJax>
+              <MathJax>
+                {
+                  <li className='questionDivli'>{data[currentQuestionIndex].Question}</li>
+                }
+                </MathJax>
             </ul>
           )}
           {/* Render next and previous buttons, disabled when at the start/end of questions */}
