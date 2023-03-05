@@ -1,21 +1,22 @@
 /* Styles for body */
 body {
-  background-color: #F2EAED;
+  background-color: #010419;
 }
 
 /* Styles for title */
 .title {
   /* text-align: center; */
-  font-size: 32px;
+  font-size: 40px;
   font-weight: bold;
   margin-top: 32px;
   margin-bottom: 16px;
+  color: #a3d3c3;
 }
 
 
 /* Styles for button */
 .button {
-  background-color: #16235A;
+  background-color: #235a52;
   border: none;
   color: white;
   padding: 12px 24px;
@@ -33,11 +34,12 @@ body {
 .questionDIv {
   margin-top: 16px;
   padding: 16px;
-  border: 1px solid #16235A;
+  border: 1px solid #0f4840;
   border-radius: 4px;
   height: auto;
   overflow: auto;
-  background-color: #A4A4BF;
+  background-color: #a3d3c3;
+  text-align: center;
 }
 
 /* Styles for question list */
@@ -52,6 +54,7 @@ body {
   margin-bottom: 16px;
   font-size: 18px;
   line-height: 1.5;
+  /* font-weight: bold; */
 }
 
 /* Styles for question navigation container */
@@ -64,7 +67,8 @@ body {
 
 /* Styles for question navigation buttons */
 .questionNav button {
-  background-color: #16235A;
+  background-color: #020834;
+  font-weight: bold;
   border: none;
   color: white;
   padding: 12px 24px;
@@ -100,7 +104,7 @@ body {
   align-items: center;
   font-size: 24px;
   font-weight: bold;
-  color: #878b30;
+  color: #a69984;
   margin-top: 16px;
   padding: 16px;
   height: auto;
