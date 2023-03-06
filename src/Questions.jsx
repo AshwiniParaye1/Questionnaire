@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { MathJax, MathJaxContext } from "better-react-mathjax"
+import { MathJax } from "better-react-mathjax"
 
 function Questions() {
   // State to store the API data and current question index
@@ -60,7 +60,7 @@ function Questions() {
           currentQuestionIndex >= data.length ? (
             <div className="loadingMessage">Loading...</div>
           ) : (
-            <ul className="questionDivul"><MathJaxContext>
+            <ul className="questionDivul">
               <MathJax>
                 {
                   <li className="questionDivli">
@@ -68,24 +68,30 @@ function Questions() {
                   </li>
                 }
               </MathJax>
-              </MathJaxContext>
+              
             </ul>
           )}
           {/* Render next and previous buttons, disabled when at the start/end of questions */}
+          <MathJax>
           <div className="questionNav">
+            
             <button
               onClick={handlePrevQuestion}
               disabled={currentQuestionIndex === 0}
             >
               Previous
             </button>
+            
+            
             <button
               onClick={handleNextQuestion}
               disabled={currentQuestionIndex === data.length - 1}
             >
               Next
             </button>
+            
           </div>
+          </MathJax>
         </div>
       </div>
     </>
