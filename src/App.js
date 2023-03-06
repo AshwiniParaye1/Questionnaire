@@ -6,13 +6,10 @@ import { MathJaxContext } from "better-react-mathjax";
 
 function App() {
 
-  const config = {
-        loader: { load: ["input/asciimath"] }
-    };
 
   return (
     <>
-    <MathJaxContext config={config}>
+    <MathJaxContext>
       <h1 className='title'>Questionnaire</h1>
     
     <Router>
