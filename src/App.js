@@ -16,6 +16,7 @@ function App() {
       <Routes>
           <Route path='/' element={<Questions />} />
         {/* <Route path='/:QId' element={<Questions />} /> */}
+       
       </Routes>
     </Router>
     </MathJaxContext>

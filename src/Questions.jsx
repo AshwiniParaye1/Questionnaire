@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { MathJax } from "better-react-mathjax"
+import { MathJax, MathJaxContext } from "better-react-mathjax"
 
 function Questions() {
   // State to store the API data and current question index
@@ -8,7 +8,7 @@ function Questions() {
 
   // Function to fetch API data and update state
   const apiGet = () => {
-    console.log("=====")
+    console.log("apiGet() =====")
     let QId = [
       "AreaUnderTheCurve_901",
       "BinomialTheorem_901",
@@ -60,7 +60,7 @@ function Questions() {
           currentQuestionIndex >= data.length ? (
             <div className="loadingMessage">Loading...</div>
           ) : (
-            <ul className="questionDivul">
+            <ul className="questionDivul"><MathJaxContext>
               <MathJax>
                 {
                   <li className="questionDivli">
@@ -68,6 +68,7 @@ function Questions() {
                   </li>
                 }
               </MathJax>
+              </MathJaxContext>
             </ul>
           )}
           {/* Render next and previous buttons, disabled when at the start/end of questions */}
