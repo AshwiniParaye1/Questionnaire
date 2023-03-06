@@ -43,62 +43,40 @@ function Questions() {
     apiGet()
   }, [])
 
-  return (
-    <>
-      <div>
-        {/* <button onClick={apiGet} className="button">
-          Get Questions
-        </button>
-        <br /> */}
-        {/*
-          Render the current question using the currentQuestionIndex state.
-          If data is empty or index is out of range, display a loading message.
-        */}
-        <div className="questionDIv">
-          {data.length === 0 ||
-          currentQuestionIndex < 0 ||
-          currentQuestionIndex >= data.length ? (
-            <div className="loadingMessage">Loading...</div>
-          ) : (
+   return (
+    <div>
+      <div className="questionDIv">
+        <MathJax.Provider>
+          {data[currentQuestionIndex] ? (
             <ul className="questionDivul">
-              <MathJax>
-                {
-                  <li className="questionDivli">
-                    {data[currentQuestionIndex].Question}
-                  </li>
-                }
-              </MathJax>
-              
+              <li className="questionDivli">
+                <MathJax>{data[currentQuestionIndex].Question}</MathJax>
+              </li>
             </ul>
+          ) : (
+            <div className="loadingMessage">Loading...</div>
           )}
-          {/* Render next and previous buttons, disabled when at the start/end of questions */}
-          
-          <div className="questionNav">
-           
-          <MathJax>
-              <button 
+        </MathJax.Provider>
+
+        <div className="questionNav">
+          <MathJax.Provider>
+            <button
               onClick={handlePrevQuestion}
               disabled={currentQuestionIndex === 0}
             >
               Previous
             </button>
-          </MathJax>
-                         
-          <MathJax>
-             <button 
+            <button
               onClick={handleNextQuestion}
               disabled={currentQuestionIndex === data.length - 1}
             >
               Next
             </button>
-          </MathJax>
-                           
-          </div>
-          
+          </MathJax.Provider>
         </div>
       </div>
-    </>
-  )
+    </div>
+  );
 }
 
-export default Questions
+export default Questions;
