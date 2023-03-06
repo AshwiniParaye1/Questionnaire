@@ -74,21 +74,23 @@ function Questions() {
           {/* Render next and previous buttons, disabled when at the start/end of questions */}
           
           <div className="questionNav">
-            <MathJax>
+            <MathJax>{
             <button
               onClick={handlePrevQuestion}
               disabled={currentQuestionIndex === 0}
             >
               Previous
             </button>
+                      }
             </MathJax>
-            <MathJax>
+            <MathJax> {
             <button
               onClick={handleNextQuestion}
               disabled={currentQuestionIndex === data.length - 1}
             >
               Next
             </button>
+                      }
             </MathJax>
           </div>
           
