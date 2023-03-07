@@ -45,7 +45,7 @@ function Questions() {
 
   return (
     <>
-      <div> <MathJax>
+      <div> 
         {/* <button onClick={apiGet} className="button">
           Get Questions
         </button>
@@ -61,14 +61,11 @@ function Questions() {
             <div className="loadingMessage">Loading...</div>
           ) : (
             <ul className="questionDivul">
-              <MathJax>
-                {
                   <li className="questionDivli">
+                    <MathJax>
                     {data[currentQuestionIndex].Question}
-                  </li>
-                }
-              </MathJax>
-              
+                    </MathJax>
+                  </li>    
             </ul>
           )}
           {/* Render next and previous buttons, disabled when at the start/end of questions */}
@@ -91,7 +88,6 @@ function Questions() {
           </div>
           
         </div>
-        </MathJax>
       </div>
     </>
   )
