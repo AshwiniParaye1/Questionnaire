@@ -14,7 +14,7 @@ function App() {
     
     <Router>
       <Routes>
-          <Route exact path='/' element={<Questions />} />
+          <Route path='/' element={<Questions />} />
         {/* <Route path='/:QId' element={<Questions />} /> */}
        
       </Routes>
